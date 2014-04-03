@@ -1,0 +1,13 @@
+<h2>Welcome <%= @user.first_name %>!</h2>
+
+<div class="form_user">
+<p class="tile"><%= link_to "Edit My Info", edit_user_path(@user) %></p>
+
+<p>Account Created: <%= @user.created_at%></p>
+<p>Account Update on: <%= @user.updated_at%></p>
+<div class="deleteaccount">
+<%= form_tag user_path(@user), method: "delete" do %>
+  <%= submit_tag("Delete My Account") %>
+</div>
+<% end %>
+</div>

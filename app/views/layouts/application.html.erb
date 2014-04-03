@@ -18,21 +18,23 @@
     <header>
       <div class="header-left">
           <ul>
-            <li>Home</li>
+            <li><%= link_to "home", root_path %></li>
             <li>Sales</li>
             <li>Rentals</li>
           </ul>
       </div>
       <div class="header-right">
           <ul>
-            <li>Login</li>
+            <li><%= link_to("login","/login") if session[:user_id].nil? %></li>
             <li><a href="#myModal" data-toggle="modal">Signup</a></li> 
             <li>Contact Us</li>
           </ul>
       </div>
     </header>
   </div>
-
+  <div>
+    <%= link_to("logout #{User.find_by(id: session[:user_id]).first_name}", "/session", method: "delete") unless session[:user_id].nil? %>
+  </div>
   <!-- Signup Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
