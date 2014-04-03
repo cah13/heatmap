@@ -1,0 +1,17 @@
+<h2>Create your account here!</h2>
+
+<div class="form">
+<% unless @user.errors.messages.empty? %>
+  <div id="errors">
+    <h3>Errors!</h3>
+    <ul>
+      <% @user.errors.messages.each do |field,error| %>
+        <li><em><%= "#{field.capitalize} #{error.first}!" %></em></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "form" %>
+
+</div>
