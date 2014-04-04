@@ -1,40 +1,20 @@
 
-// function initialize() {
-//   var mapOptions = {
-//     center: new google.maps.LatLng(40.744, -73.968),
-//     zoom: 13,
-//     panControl: true,
-//     zoomControl: true,
-//     scaleControl: true
-//   };
-  
-//   var map = new google.maps.Map(document.getElementById("map-canvas"),
-//   mapOptions);
-// }
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-
-// Adding 500 Data Points
 var map, pointarray, heatmap;
 
 var listingData = [
-  new google.maps.LatLng(40.744, -73.965),
-  new google.maps.LatLng(40.743, -73.966),
-  new google.maps.LatLng(40.742, -73.969),
-  new google.maps.LatLng(40.741, -73.963),
-  new google.maps.LatLng(40.749, -73.961),
-  new google.maps.LatLng(40.748, -73.962)
+  new google.maps.LatLng(40.774874, -73.984064),
+  new google.maps.LatLng(40.743000, -73.966000),
+  new google.maps.LatLng(40.742000, -73.969000),
+  new google.maps.LatLng(40.741000, -73.963000),
+  new google.maps.LatLng(40.749000, -73.961000),
+  new google.maps.LatLng(40.748000, -73.962000)
   ];
-
 
 function initialize() {
   var mapOptions = {
-    center: new google.maps.LatLng(40.744, -73.968),
     zoom: 13,
-    // panControl: true,
-    // zoomControl: true,
-    // scaleControl: true
-    mapTypeId: google.maps.MapTypeId.MAP
+    center: new google.maps.LatLng(40.744000, -73.968000),
+    mapTypeId: google.maps.MapTypeId.Map
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
