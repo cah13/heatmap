@@ -8,7 +8,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="assets/maps.css">
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuBuX_AMRAwh8uNwS614-_3xgNqpR9mwc&sensor=false">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuBuX_AMRAwh8uNwS614-_3xgNqpR9mwc&sensor=false&v=3.exp&sensor=false&libraries=visualization">
     </script>
     <script type="text/javascript" src="assets/maps.js"></script>
 </head>
@@ -55,7 +55,12 @@
   </div>
 
 <%= yield %>
-
+    <div id="panel">
+      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button onclick="changeGradient()">Change gradient</button>
+      <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button>
+    </div>
   <div id="map-canvas" />
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
