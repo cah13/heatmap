@@ -18,14 +18,14 @@
     <header>
       <div class="header-left">
           <ul>
-            <li><%= link_to "home", root_path %></li>
+            <li><%= link_to "Home", root_path %></li>
             <li>Sales</li>
             <li>Rentals</li>
           </ul>
       </div>
       <div class="header-right">
           <ul>
-            <li><%= link_to("login","/login") if session[:user_id].nil? %></li>
+            <li><%= link_to("Login","/login") if session[:user_id].nil? %></li>
             <li><a href="#myModal" data-toggle="modal">Signup</a></li> 
             <li>Contact Us</li>
           </ul>
