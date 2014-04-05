@@ -5,6 +5,8 @@ resources :users
 root "welcome#index"
 post "/", to: "welcome#import"
 
+get "/listings", to: "welcome#listings"
+
 post "/signup", to: "users#create"
 
 get "/login", to: "session#new"

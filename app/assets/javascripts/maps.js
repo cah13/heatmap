@@ -2,13 +2,19 @@
 var map, pointarray, heatmap;
 
 var listingData = [
-  new google.maps.LatLng(40.774874, -73.984064),
-  new google.maps.LatLng(40.743000, -73.966000),
-  new google.maps.LatLng(40.742000, -73.969000),
-  new google.maps.LatLng(40.741000, -73.963000),
-  new google.maps.LatLng(40.749000, -73.961000),
-  new google.maps.LatLng(40.748000, -73.962000),
+  
   ];
+
+function getListings(){
+  $.getJSON("/listings", function(response){
+    $.each(response, function(i, object) {
+     listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
+    })
+  });
+};
+
+getListings();
+
 
 function initialize() {
 
