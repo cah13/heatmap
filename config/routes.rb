@@ -3,6 +3,7 @@ Heatmap::Application.routes.draw do
 resources :users
 
 root "welcome#index"
+post "/", to: "welcome#import"
 
 post "/signup", to: "users#create"
 
