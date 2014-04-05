@@ -46,6 +46,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'httparty'
 
+gem "geocoder"
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'

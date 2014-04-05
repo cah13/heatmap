@@ -19,4 +19,10 @@ class Listing < ActiveRecord::Base
     end
   end
 
+  geocoded_by :listing
+
+  def listing
+    [address, city, state].compact.join(', ')
+  end
+
 end
