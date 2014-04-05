@@ -13,7 +13,7 @@ var listingData = [
 function initialize() {
 
   var markers = [];
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
     mapTypeId: google.maps.MapTypeId.MAP
   });
 
@@ -85,6 +85,7 @@ function initialize() {
   heatmap.setMap(map);
 }
 
+ 
 function toggleHeatmap() {
   heatmap.setMap(heatmap.getMap() ? null : map);
 }
