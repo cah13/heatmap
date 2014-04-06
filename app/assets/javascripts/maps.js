@@ -5,28 +5,6 @@ var listingData = [
   
   ];
 
-function getAvg(){
- $.getJSON("/listings", function(response){
-    var total = 0
-  $.each(response, function(i, object){
-    // console.log(response[i].price);
-    total += response[i].price
-  });
-    avg = (total / response.length);
-    console.log(avg);
- }); 
-};
-
-
-function getWeigth(){
-  $.getJSON("/listings", function(response){
-    $.each(response, function(i, object){
-      weight = (avg / response[i].price);
-    })
-  })
-}  
-
-
 function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
@@ -34,9 +12,63 @@ function getListings(){
      // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
     })
   });
-};
+};  
 
 getListings();
+
+// function getAvg(){
+//  $.getJSON("/listings", function(response){
+//     var total = 0
+//   $.each(response, function(i, object){
+//     // console.log(response[i].price);
+//     total += response[i].price
+//   });
+//     avg = (total / response.length);
+//     console.log(avg);
+//  }); 
+// };
+
+
+// function getWeigth(){
+//   $.getJSON("/listings", function(response){
+//     $.each(response, function(i, object){
+//       weight = (avg / response[i].price);
+//     })
+//   })
+// }  
+
+
+// function getSales(){
+//   $.getJSON("/listings", function(response){
+//     $.each(response, function(i, object) {
+//      if(response[i].listing_type === "sales")
+//      listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
+//      // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
+//     })
+//   });
+// };
+
+// getSales();
+
+// function getRentals(){
+//   $.getJSON("/listings", function(response){
+//     $.each(response, function(i, object) {
+//      if(response[i].listing_type === "rentals")
+//      listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
+//      // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
+//     })
+//   });
+// };
+
+// var sales = document.getElementById('sales')
+// $(sales).click(function() {
+//   getSales();
+// });
+
+// var rentals = document.getElementById('rentals')
+// $(rentals).click(function() {
+//   getRentals();
+// });
 
 
 function initialize() {
