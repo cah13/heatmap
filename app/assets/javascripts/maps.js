@@ -5,10 +5,33 @@ var listingData = [
   
   ];
 
+function getAvg(){
+ $.getJSON("/listings", function(response){
+    var total = 0
+  $.each(response, function(i, object){
+    // console.log(response[i].price);
+    total += response[i].price
+  });
+    avg = (total / response.length);
+    console.log(avg);
+ }); 
+};
+
+
+function getWeigth(){
+  $.getJSON("/listings", function(response){
+    $.each(response, function(i, object){
+      weight = (avg / response[i].price);
+    })
+  })
+}  
+
+
 function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
      listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
+     // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
     })
   });
 };
