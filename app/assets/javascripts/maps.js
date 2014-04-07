@@ -1,10 +1,11 @@
-
 var map, pointarray, heatmap;
 
+// array of each listing from db
 var listingData = [
   
   ];
 
+// returns average price of all listings for sale
 function getAvgSales(){
  $.getJSON("/listings", function(response){
     var salesTotal = 0
@@ -19,6 +20,7 @@ function getAvgSales(){
 
 getAvgSales();
 
+// return average price of all rental listings
 function getAvgRentals(){
  $.getJSON("/listings", function(response){
     var rentalsTotal = 0
@@ -33,7 +35,7 @@ function getAvgRentals(){
 
 getAvgRentals();
 
-
+// returns each listing from db and displays on map
 function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
@@ -47,8 +49,7 @@ function getListings(){
 
 getListings();
 
-// function toCurrency(amount){return amount.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");}
-
+// creates transparent marker to make heat map clickable, loads info
 function makeMarkers(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
@@ -179,6 +180,7 @@ function initialize() {
     }
 
     map.fitBounds(bounds);
+    map.setZoom(16);
   });
   // [END region_getplaces]
 
