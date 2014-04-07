@@ -5,12 +5,44 @@ var listingData = [
   
   ];
 
+function getAvgSales(){
+ $.getJSON("/listings", function(response){
+    var salesTotal = 0
+  $.each(response, function(i, object){
+    if(response[i].listing_type === "sales")
+    salesTotal += response[i].price
+  });
+    salesAvg = (salesTotal / response.length);
+    return salesAvg
+ }); 
+};
+
+getAvgSales();
+
+function getAvgRentals(){
+ $.getJSON("/listings", function(response){
+    var rentalsTotal = 0
+  $.each(response, function(i, object){
+    if(response[i].listing_type === "rentals")
+    rentalsTotal += response[i].price
+  });
+    rentalsAvg = (rentalsTotal / response.length);
+    return rentalsAvg
+ }); 
+};
+
+getAvgRentals();
+
+
 function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
-     listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
-     // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
-    })
+     if(response[i].listing_type === "sales")
+      listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: (salesAvg / response[i].price) } ); 
+     else
+      listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: (rentalsAvg / response[i].price) } ); 
+
+    });
   });
 };  
 
@@ -25,13 +57,13 @@ function makeMarkers(){
       '</div>'+
       '<h2 id="firstHeading" class="firstHeading">'+ object.address + ' #' + object.apt +'</h2>'+
       '<div id="bodyContent">'+
-      '<p>'+ 'City/State: ' + object.city + ', ' + object.state + '</p>'+
-      '<p>'+ 'Price: ' + object.price + '</p>'+
-      '<p>'+ 'Size: ' + object.size + '</p>'+
-      '<p>'+ 'Square Feet: ' + object.square_feet + '</p>'+
-      '<p>'+ 'Building Type: ' + object.building_type + '</p>'+
-      '<p>'+ 'Neighborhood: ' + object.neighborhood + '</p>'+
-      '<p>'+ 'Type: ' + object.listing_type + '</p>'+
+      '<p>'+ '<strong>City/State: </strong>' + object.city + ', ' + object.state + '</p>'+
+      '<p>'+ '<strong>Price: </strong>' + object.price + '</p>'+
+      '<p>'+ '<strong>Size: </strong>' + object.size + '</p>'+
+      '<p>'+ '<strong>Square Feet: </strong>' + object.square_feet + '</p>'+
+      '<p>'+ '<strong>Building Type: </strong>' + object.building_type + '</p>'+
+      '<p>'+ '<strong>Neighborhood: </strong>' + object.neighborhood + '</p>'+
+      '<p>'+ '<strong>Type: </strong>' + object.listing_type + '</p>'+
       '</div>'+
       '</div>';  
 
@@ -55,26 +87,6 @@ function makeMarkers(){
 
 makeMarkers();
 
-// function getAvg(){
-//  $.getJSON("/listings", function(response){
-//     var total = 0
-//   $.each(response, function(i, object){
-//     // console.log(response[i].price);
-//     total += response[i].price
-//   });
-//     avg = (total / response.length);
-//     console.log(avg);
-//  }); 
-// };
-
-
-// function getWeigth(){
-//   $.getJSON("/listings", function(response){
-//     $.each(response, function(i, object){
-//       weight = (avg / response[i].price);
-//     })
-//   })
-// }  
 
 
 // function getSales(){
