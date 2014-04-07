@@ -16,6 +16,32 @@ function getListings(){
 
 getListings();
 
+function makeMarkers(){
+  $.getJSON("/listings", function(response){
+    $.each(response, function(i, object) {
+       
+       var contentString = object.latitude.toString();
+
+       var infowindow = new google.maps.InfoWindow({
+       content: contentString
+      });
+
+       var marker = new google.maps.Marker({
+       position: new google.maps.LatLng(object.latitude, object.longitude),
+       map: map,
+       title: 'Uluru (Ayers Rock)',
+       icon: '/assets/marker.png'
+      });
+
+       google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+      }); 
+    })
+  });
+};
+
+makeMarkers();
+
 // function getAvg(){
 //  $.getJSON("/listings", function(response){
 //     var total = 0
