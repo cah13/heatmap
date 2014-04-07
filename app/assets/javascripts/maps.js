@@ -38,15 +38,16 @@ function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
      if(response[i].listing_type === "sales")
-      listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: (salesAvg / response[i].price) } ); 
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( salesAvg / (response[i].price * 2) ) } ); 
      else
-      listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: (rentalsAvg / response[i].price) } ); 
-
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( rentalsAvg / (response[i].price * 2) ) } ); 
     });
   });
 };  
 
 getListings();
+
+// function toCurrency(amount){return amount.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");}
 
 function makeMarkers(){
   $.getJSON("/listings", function(response){
@@ -57,13 +58,13 @@ function makeMarkers(){
       '</div>'+
       '<h2 id="firstHeading" class="firstHeading">'+ object.address + ' #' + object.apt +'</h2>'+
       '<div id="bodyContent">'+
-      '<p>'+ '<strong>City/State: </strong>' + object.city + ', ' + object.state + '</p>'+
-      '<p>'+ '<strong>Price: </strong>' + object.price + '</p>'+
-      '<p>'+ '<strong>Size: </strong>' + object.size + '</p>'+
-      '<p>'+ '<strong>Square Feet: </strong>' + object.square_feet + '</p>'+
-      '<p>'+ '<strong>Building Type: </strong>' + object.building_type + '</p>'+
-      '<p>'+ '<strong>Neighborhood: </strong>' + object.neighborhood + '</p>'+
-      '<p>'+ '<strong>Type: </strong>' + object.listing_type + '</p>'+
+      '<h4>'+ '<strong>City/State: </strong>' + object.city + ', ' + object.state + '</h4>'+
+      '<h4>'+ '<strong>Price: </strong>' + '$'+ object.price + '</h4>'+
+      '<h4>'+ '<strong>Size: </strong>' + object.size + '</h4>'+
+      '<h4>'+ '<strong>Square Feet: </strong>' + object.square_feet + '</h4>'+
+      '<h4>'+ '<strong>Building Type: </strong>' + object.building_type + '</h4>'+
+      '<h4>'+ '<strong>Neighborhood: </strong>' + object.neighborhood + '</h4>'+
+      '<h4>'+ '<strong>Type: </strong>' + object.listing_type + '</h4>'+
       '</div>'+
       '</div>';  
 
