@@ -20,7 +20,20 @@ function makeMarkers(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
        
-       var contentString = object.latitude.toString();
+       var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h2 id="firstHeading" class="firstHeading">'+ object.address + ' #' + object.apt +'</h2>'+
+      '<div id="bodyContent">'+
+      '<p>'+ 'City/State: ' + object.city + ', ' + object.state + '</p>'+
+      '<p>'+ 'Price: ' + object.price + '</p>'+
+      '<p>'+ 'Size: ' + object.size + '</p>'+
+      '<p>'+ 'Square Feet: ' + object.square_feet + '</p>'+
+      '<p>'+ 'Building Type: ' + object.building_type + '</p>'+
+      '<p>'+ 'Neighborhood: ' + object.neighborhood + '</p>'+
+      '<p>'+ 'Type: ' + object.listing_type + '</p>'+
+      '</div>'+
+      '</div>';  
 
        var infowindow = new google.maps.InfoWindow({
        content: contentString
@@ -29,7 +42,7 @@ function makeMarkers(){
        var marker = new google.maps.Marker({
        position: new google.maps.LatLng(object.latitude, object.longitude),
        map: map,
-       title: 'Uluru (Ayers Rock)',
+       title: 'Listing Information',
        icon: '/assets/marker.png'
       });
 
