@@ -1,4 +1,4 @@
-var map, pointarray, heatmap;
+var map, pointarray, heatmap, salesAvg, rentalsAvg;
 
 // array of each listing from db
 var listingData = [
@@ -198,7 +198,7 @@ function initialize() {
     data: pointArray
   });
 
-  heatmap.setMap(map);
+  setTimeout(function(){heatmap.setMap(map)}, 200);
 }
 
  
@@ -223,7 +223,7 @@ function changeGradient() {
     'rgba(191, 0, 31, 1)',
     'rgba(255, 0, 0, 1)'
   ]
-  
+
   heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 }
 
