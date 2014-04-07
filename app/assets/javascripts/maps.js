@@ -40,9 +40,9 @@ function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
      if(response[i].listing_type === "sales")
-      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( salesAvg / (response[i].price * 2) ) } ); 
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (salesAvg * 3) ) } ); 
      else
-      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( rentalsAvg / (response[i].price * 2) ) } ); 
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (rentalsAvg * 3) ) } ); 
     });
   });
 };  
@@ -180,7 +180,8 @@ function initialize() {
     }
 
     map.fitBounds(bounds);
-    map.setZoom(16);
+    // sets zoom of searchbox
+    map.setZoom(17);
   });
   // [END region_getplaces]
 
@@ -222,6 +223,7 @@ function changeGradient() {
     'rgba(191, 0, 31, 1)',
     'rgba(255, 0, 0, 1)'
   ]
+  
   heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 }
 

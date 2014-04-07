@@ -1,5 +1,19 @@
 class Listing < ActiveRecord::Base
 
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :apt, presence: true
+  validates :neighborhood, presence: true
+  validates :building_type, presence: true
+  validates :size, presence: true
+  validates :square_feet, presence: true
+  validates :price, presence: true
+  validates :listing_type, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       listing = Listing.new
