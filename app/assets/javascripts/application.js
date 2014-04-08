@@ -13,7 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require maps
-//= require signup
-//= require login
+//= require_tree .
 
