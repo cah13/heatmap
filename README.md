@@ -35,7 +35,7 @@ HeatMap
 * A user can click on a listings
 * A user can see data weighted by price
 
-ERD ()
+ERD (https://www.dropbox.com/s/mrh8fsc1z678990/heatmap_erd.jpg)
 
 A link to Heatmap can be found here: ()
 
