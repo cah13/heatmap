@@ -66,8 +66,12 @@
   font-family: helvetica, sans-serif;
  }
 
- li a{
+ li a {
   color: #fff;
+ }
+
+ #bodyContent strong {
+  color: #lightgreen;
  }
 
 

@@ -54,7 +54,7 @@ function makeMarkers(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
        
-       var contentString = '<div id="content">'+
+      var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h2 id="firstHeading" class="firstHeading">'+ object.address + ' #' + object.apt +'</h2>'+
@@ -166,8 +166,8 @@ function initialize() {
 
   // defines SW and NE points
   var defaultBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(40.72476, -74.03893),
-      new google.maps.LatLng(40.80797, -73.90366));
+      new google.maps.LatLng(40.71000, -74.03893),
+      new google.maps.LatLng(40.79000, -73.90366));
   map.fitBounds(defaultBounds);
 
   // Create the search box and link it to the UI element.
@@ -232,7 +232,7 @@ function initialize() {
     data: pointArray
   });
 
-  setTimeout(function(){heatmap.setMap(map)}, 250);
+  setTimeout(function(){heatmap.setMap(map)}, 350);
 }
 
  
