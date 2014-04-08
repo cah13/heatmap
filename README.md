@@ -5,7 +5,7 @@ HeatMap
 
 ### Overview
 
-**Heatmap** is a web application that displays New York City residential real estate listing data as a heat map weighted by price for both sales and rentals. Heatmap was developed as a Rails project for the January 2014 Web Development Immersive course at General Assembly using the agile software development process.
+**Heatmap** is a web application that displays New York City residential real estate listing data as a heat map weighted by price for both sales and rentals. Heatmap was developed as a single-page application (SPA) project for the January 2014 Web Development Immersive course at General Assembly using the agile software development process.
 
 ### Technologies Used:
 * Ruby 2.1.0

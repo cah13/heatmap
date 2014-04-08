@@ -40,9 +40,9 @@ function getListings(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
      if(response[i].listing_type === "sales")
-      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (salesAvg * 3) ) } ); 
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (salesAvg * 3.7) ) } ); 
      else
-      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (rentalsAvg * 3) ) } ); 
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (rentalsAvg * 3.7) ) } ); 
     });
   });
 };  
