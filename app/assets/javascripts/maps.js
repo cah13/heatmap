@@ -89,8 +89,6 @@ function makeMarkers(){
 
 makeMarkers();
 
-
-
 // function getSales(){
 //   $.getJSON("/listings", function(response){
 //     $.each(response, function(i, object) {
