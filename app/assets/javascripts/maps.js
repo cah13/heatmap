@@ -126,11 +126,45 @@ makeMarkers();
 
 function initialize() {
 
+  // Create an array of styles.
+  var styles = [
+    {
+      stylers: [
+        { hue: "#fff" },
+        { saturation: -20 }
+      ]
+    },{
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
+  ]; 
+
+  // Create a new StyledMapType object, passing it the array of styles,
+  // as well as the name to be displayed on the map type control.
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"}); 
+
+
   var markers = [];
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     mapTypeId: google.maps.MapTypeId.MAP
   });
 
+  //Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
+
+  // defines SW and NE points
   var defaultBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(40.72476, -74.03893),
       new google.maps.LatLng(40.80797, -73.90366));
@@ -198,7 +232,7 @@ function initialize() {
     data: pointArray
   });
 
-  setTimeout(function(){heatmap.setMap(map)}, 200);
+  setTimeout(function(){heatmap.setMap(map)}, 250);
 }
 
  
