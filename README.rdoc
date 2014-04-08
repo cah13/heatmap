@@ -35,9 +35,9 @@ HeatMap
 * A user can click on a listings
 * A user can see data weighted by price
 
-ERD (https://github.com/shawnbro/quick_shark/blob/master/app/assets/images/TangentERD.jpg)
+ERD ()
 
-A link to Heatmap can be found here: (https://tangentapp.herokuapp.com)
+A link to Heatmap can be found here: ()
 
 A full list of user stories can be found by looking at [this Pivotal Tracker Project](https://www.pivotaltracker.com/s/projects/1052398)
 
