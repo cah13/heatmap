@@ -70,8 +70,12 @@
   color: #fff;
  }
 
+ #bodyContent span {
+  color: #f42900;
+ }
+
  #bodyContent strong {
-  color: #lightgreen;
+  font-size: 1.2em;
  }
 
 

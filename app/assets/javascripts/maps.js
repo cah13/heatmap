@@ -59,13 +59,13 @@ function makeMarkers(){
       '</div>'+
       '<h2 id="firstHeading" class="firstHeading">'+ object.address + ' #' + object.apt +'</h2>'+
       '<div id="bodyContent">'+
-      '<h4>'+ '<strong>City/State: </strong>' + object.city + ', ' + object.state + '</h4>'+
-      '<h4>'+ '<strong>Price: </strong>' + '$'+ object.price + '</h4>'+
-      '<h4>'+ '<strong>Size: </strong>' + object.size + '</h4>'+
-      '<h4>'+ '<strong>Square Feet: </strong>' + object.square_feet + '</h4>'+
-      '<h4>'+ '<strong>Building Type: </strong>' + object.building_type + '</h4>'+
-      '<h4>'+ '<strong>Neighborhood: </strong>' + object.neighborhood + '</h4>'+
-      '<h4>'+ '<strong>Type: </strong>' + object.listing_type + '</h4>'+
+      '<h4>'+ '<strong>City/State: </strong>' + '<span>' + object.city + ', ' + object.state + '</span>' + '</h4>'+
+      '<h4>'+ '<strong>Price: </strong>' + '<span>'+ '$' + object.price + '</span>' + '</h4>'+
+      '<h4>'+ '<strong>Size: </strong>' + '<span>' + object.size + '</span>' + '</h4>'+
+      '<h4>'+ '<strong>Square Feet: </strong>' + '<span>' + object.square_feet + '</span>' + '</h4>'+
+      '<h4>'+ '<strong>Building Type: </strong>' + '<span>' + object.building_type + '</span>' + '</h4>'+
+      '<h4>'+ '<strong>Neighborhood: </strong>' + '<span>' + object.neighborhood + '</span>' + '</h4>'+
+      '<h4>'+ '<strong>Type: </strong>' + '<span>' + object.listing_type + '</span>' + '</h4>'+
       '</div>'+
       '</div>';  
 
