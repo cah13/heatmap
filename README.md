@@ -11,7 +11,7 @@ HeatMap
 * Ruby 2.1.0
 * Ruby on Rails 4.0.2
 * PostgreSQL Database
-* Authentication & Authorization (using bcypt-ruby)
+* Authentication & Authorization (using bcrypt-ruby)
 * Ruby Gems:
   * Bcrypt (Used to password protect ruby web app via authentication and authorization)(https://github.com/codahale/bcrypt-ruby)
   * Simplecov (Used to monitor test coverage)(https://github.com/colszowka/simplecov)
@@ -36,8 +36,6 @@ HeatMap
 * A user can see data weighted by price
 
 ERD (https://www.dropbox.com/s/mrh8fsc1z678990/heatmap_erd.jpg)
-
-A link to Heatmap can be found here: ()
 
 A full list of user stories can be found by looking at [this Pivotal Tracker Project](https://www.pivotaltracker.com/s/projects/1052398)
 
