@@ -73,12 +73,14 @@ function getRentals(){
 
 $("#sales").click(function() {
   console.log("sales");
+  listingData.length = 0;
   getSales();
 });
 
 
 $("#rentals").click(function() {
   console.log("rentals");
+  listingData.length = 0;
   getRentals();
 });
 
