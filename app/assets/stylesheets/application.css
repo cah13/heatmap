@@ -78,4 +78,20 @@
   font-size: 1.2em;
  }
 
+ #sales {
+  cursor:pointer;
+ }
+
+ #rentals {
+  cursor:pointer;
+ }
+
+ #home {
+  cursor:pointer;
+ }
+
+li a:hover {
+  text-decoration: none;
+  color: #ff0000;
+}
 
