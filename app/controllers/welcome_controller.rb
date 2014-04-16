@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   end
 
   def import
-   Listing.import(params[:file])
+    Listing.import(params[:file])
   end
 
   def listings

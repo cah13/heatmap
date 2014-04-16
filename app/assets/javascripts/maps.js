@@ -36,18 +36,51 @@ function getAvgRentals(){
 getAvgRentals();
 
 // returns each listing from db and displays on map
-function getListings(){
+// function getListings(){
+//   $.getJSON("/listings", function(response){
+//     $.each(response, function(i, object) {
+//      if(response[i].listing_type === "sales")
+//       listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (salesAvg * 3.7) ) } ); 
+//      else
+//       listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (rentalsAvg * 3.7) ) } ); 
+//     });
+//   });
+// };  
+
+// getListings();
+
+function getSales(){
   $.getJSON("/listings", function(response){
     $.each(response, function(i, object) {
      if(response[i].listing_type === "sales")
       listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (salesAvg * 3.7) ) } ); 
-     else
-      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (rentalsAvg * 3.7) ) } ); 
-    });
+    })
   });
-};  
+};
 
-getListings();
+// getSales();
+
+function getRentals(){
+  $.getJSON("/listings", function(response){
+    $.each(response, function(i, object) {
+     if(response[i].listing_type === "rentals")
+      listingData.push( { location: new google.maps.LatLng(object.latitude, object.longitude), weight: ( response[i].price / (rentalsAvg * 3.7) ) } ); 
+    })
+  });
+};
+
+// getRentals();
+
+$("#sales").click(function() {
+  console.log("sales");
+  getSales();
+});
+
+
+$("#rentals").click(function() {
+  console.log("rentals");
+  getRentals();
+});
 
 // creates transparent marker to make heat map clickable, loads info
 function makeMarkers(){
@@ -89,37 +122,6 @@ function makeMarkers(){
 
 makeMarkers();
 
-// function getSales(){
-//   $.getJSON("/listings", function(response){
-//     $.each(response, function(i, object) {
-//      if(response[i].listing_type === "sales")
-//      listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
-//      // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
-//     })
-//   });
-// };
-
-// getSales();
-
-// function getRentals(){
-//   $.getJSON("/listings", function(response){
-//     $.each(response, function(i, object) {
-//      if(response[i].listing_type === "rentals")
-//      listingData.push( new google.maps.LatLng(object.latitude, object.longitude) );
-//      // listingData.push( {location: new google.maps.LatLng(object.latitude, object.longitude), weight: weight} ); 
-//     })
-//   });
-// };
-
-// var sales = document.getElementById('sales')
-// $(sales).click(function() {
-//   getSales();
-// });
-
-// var rentals = document.getElementById('rentals')
-// $(rentals).click(function() {
-//   getRentals();
-// });
 
 
 function initialize() {
@@ -268,3 +270,4 @@ function changeOpacity() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+

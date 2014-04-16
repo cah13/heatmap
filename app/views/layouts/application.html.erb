@@ -10,7 +10,6 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuBuX_AMRAwh8uNwS614-_3xgNqpR9mwc&sensor=false&v=3.exp&sensor=false&libraries=visualization,places">
     </script>
-    <script type="text/javascript" src="assets/maps.js"></script>
 </head>
 <body>
   <div class="header">
@@ -18,9 +17,9 @@
     <header>
       <div class="header-left">
           <ul>
-            <li><%= link_to "Home", root_path %></li>
+            <li><a>Home</a></li>
             <li><a id="sales">Sales</a></li>
-            <li class="rentals"><a href="" id="rentals">Rentals</a></li>
+            <li class="rentals"><a id="rentals">Rentals</a></li>
           </ul>
       </div>
       <div class="header-right">
@@ -38,6 +37,7 @@
   <div id="map-canvas" />
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/maps.js"></script>
   <script type="text/javascript" src="assets/signup.js"></script>
   <script type="text/javascript" src="assets/login.js"></script>
 </body>
